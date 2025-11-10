@@ -11,7 +11,7 @@ data_sets_attributes = {
 }
 
 
-def forgetting_sum(perlabel_score, ll=10):
+def performance_gap(perlabel_score, ll=10):
     forgetting_ = 0
 
     # for e in range(100):
@@ -131,7 +131,7 @@ def test_per_target(net_a, net_b, testloader, dataset_name,
     for i in range(target[1]):
         scores_accuracy[i] = correct[i] / total[i]
     
-    forgetting_score = forgetting_sum(scores_accuracy, target[1])
+    forgetting_score = performance_gap(scores_accuracy, target[1])
     return (forgetting_score, scores_accuracy)
 
 
@@ -240,7 +240,7 @@ def test_per_target_hydra(net_a, net_b, net_c, testloader, dataset_name,
         else:
             scores_accuracy[i] = correct[i] / total[i]
     
-    forgetting_score = forgetting_sum(scores_accuracy, target[1])
+    forgetting_score = performance_gap(scores_accuracy, target[1])
     return (forgetting_score, scores_accuracy)
 
 def test_per_target_fl3(net_a, net_b, testloader, dataset_name, 
@@ -307,7 +307,7 @@ def test_per_target_fl3(net_a, net_b, testloader, dataset_name,
         else:
             scores_accuracy[i] = correct[i] / total[i]
 
-    forgetting_score = forgetting_sum(scores_accuracy, target[1])
+    forgetting_score = performance_gap(scores_accuracy, target[1])
     return (forgetting_score, scores_accuracy, (correct_global/total_global))
 
 def test_per_target_multihead(net_a, net_b, testloader, dataset_name, 
@@ -371,5 +371,5 @@ def test_per_target_multihead(net_a, net_b, testloader, dataset_name,
             scores_accuracy[i] = -1
         else:
             scores_accuracy[i] = correct[i] / total[i]
-    forgetting_score = forgetting_sum(scores_accuracy, target[1])
+    forgetting_score = performance_gap(scores_accuracy, target[1])
     return (forgetting_score, scores_accuracy, (correct_global/total_global))
