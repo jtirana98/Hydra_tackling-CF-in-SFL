@@ -27,10 +27,10 @@ Structure of this Document:
 
 
 
-### Set-up Instructions
+## Set-up Instructions
 
-1. Create Python environment
-2. Install and set-up PyTorch and torchvision in your environment according to [pytorch-site](https://pytorch.org/get-started/locally/)
+1. Create a Python environment
+2. Install and set up PyTorch and torchvision in your environment according to [pytorch-site](https://pytorch.org/get-started/locally/)
 
 
 3. Additional libraries
@@ -51,7 +51,7 @@ Structure of this Document:
 - Note that 'TinyImageNet' requires the largest memory demand. 
 - Other datasets can be loaded even with 16GB RAM. 
 
-### Structure of Repos' Files
+## Structure of Repos' Files
 
 **All util files:**
 
@@ -96,7 +96,7 @@ These files contain examples of how to initiate a new experiment. You can use th
 
 
 
-### Other Assets Used:
+## Other Assets Used:
 
 In order to create the datasets, we have used open-source data. In some cases, we utilize the [Flower](https://flower.ai/docs/framework/index.html) library. Also, we found out that for the Dominant Label partition, the implementation of MergeSFL was more handful. The source code of this implementation can be found  [here](https://github.com/ymliao98/MergeSFL/blob/main/datasets.py). Inside our code, we specifically indicate which parts of the code have been used from other assets. Specifically, you can find the corresponding references in comments inside the 'get_data.py' file.
 
@@ -107,7 +107,7 @@ For the implementation of the baseline methods, we built the code from scratch. 
 This implementation code, together with the details (e.g., hyperparameter values) provided in the paper and in the code files, will allow the reader to reproduce the presented experiments and claims of the paper. 
 
 
-### References
+## References
 
 [1] Chandra Thapa, Pathum Chamikara Mahawaga Arachchige, Seyit Camtepe, and Lichao Sun. Splitfed: When federated learning meets split learning. In Proceedings of the AAAI Conference on Artificial Intelligence, volume 36, pages 8485–8493, 2022.
 
