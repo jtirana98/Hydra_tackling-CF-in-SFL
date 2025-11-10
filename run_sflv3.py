@@ -198,7 +198,7 @@ def main():
                                                 partition_method=partition_method_apply, label_name=label_)
        
         logger.info(f'>>>>> Epoch [{epoch}]: Global model acc: {epoch_accuracy}')
-        logger.info(f'>>>>> Forgetting score: {forg_score}')
+        logger.info(f'>>>>> Performance Gap: {forg_score}')
         logger.info(f'Scores per target value')
         for i in range(my_utils.data_sets_attributes[args.dataset_type][args.classif_target]):
             logger.info(f'for label {i} >> {scores[i]}')      

@@ -205,7 +205,7 @@ def main():
         (forg_score, acc_scores) = my_utils.test_per_target(global_model, None, testloader, args.dataset_type,
                                         target=(args.classif_target, my_utils.data_sets_attributes[args.dataset_type][args.classif_target]),
                                         partition_method=partition_method_apply, label_name=label_)
-        logger.info(f'>>>>> Forgetting score: {forg_score}')
+        logger.info(f'>>>>> Performance Gap: {forg_score}')
         logger.info(f'Scores per-label value')
         for i in range(len(acc_scores)):    
             logger.info(f'label {i} >> {acc_scores[i]}')
