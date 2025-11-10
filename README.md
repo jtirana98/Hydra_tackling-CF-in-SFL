@@ -1,2 +1,2 @@
-# Hydra_tackling-CF-in-SFL
-Framework for evaluating Catastrophic Forgetting (CF) in SFL, SL, and FL. Also, contains Hydra an extention for SplitFedV2 to tackle CF.
+# Hydra: tackling Catastrophic Forgetting (CF) in Split Federated Learning (SFL)
+Framework for evaluating CF in SFL, SL, and FL. Also, contains the implementation of Hydra, an extension for SplitFedV2 that tackles CF.
