@@ -1,13 +1,17 @@
 # Hydra: tackling Catastrophic Forgetting (CF) in Split Federated Learning (SFL)
-Framework for evaluating CF in SFL, SL, and FL. Additionally, it contains the implementation of Hydra, an extension for SplitFedV2 that addresses CF.
+
+This is a framework for evaluating CF in SFL, SL, and FL. Additionally, it contains the implementation of Hydra, an extension for SplitFedV2 that addresses CF, under high heterogeneous data. As is shown in the figure below (left), in SFL exists a different type of CF, which results in a disparity of performance between the labels. In detail, we identify that the processing order in SplitFedv2 can cause a new type of CF, named intra-round Catastrophic Forgetting (intraCF). We propose Hydra, a mitagation method which minimizes this gap of performance and imporve overall accuracy as is also shown in the figure below (right).
+
+<div style="text-align: center;">
+  <img src="./hydra_intro.png" alt="Centered image" style="display: block; margin: 0 auto;">
+</div>
+
 
 This repository is based on the paper titled "Data Heterogeneity and Forgotten Labels in Split Federated Learning". 
 
 The paper has been accepted at AAAI 2026.
 
-<div style="text-align: center;">
-  <img src="./hydra_design.png" alt="Centered image" style="display: block; margin: 0 auto;">
-</div>
+
 
 
 Link to Paper: /*  wait for AAAI proceedings */
