@@ -202,10 +202,11 @@ def main():
         logger.info(f'>>>>> Epoch [{epoch}]: Global model loss: {epoch_loss} acc: {epoch_accuracy}')
         
 
-        (forg_score, acc_scores) = my_utils.test_per_target(global_model, None, testloader, args.dataset_type,
+        (forg_score, acc_scores, bw_score_val) = my_utils.test_per_target(global_model, None, testloader, args.dataset_type,
                                         target=(args.classif_target, my_utils.data_sets_attributes[args.dataset_type][args.classif_target]),
                                         partition_method=partition_method_apply, label_name=label_)
         logger.info(f'>>>>> Performance Gap: {forg_score}')
+        logger.info(f'>>>>> Backward Tranfer: {bw_score_val}')
         logger.info(f'Scores per-label value')
         for i in range(len(acc_scores)):    
             logger.info(f'label {i} >> {acc_scores[i]}')

@@ -25,6 +25,21 @@ def performance_gap(perlabel_score, ll=10):
     forgetting_ = (forgetting_ / ll)
     return forgetting_
 
+def bw_score(y_values, ll=10):
+    forgetting_ = 0
+
+    for l in range(ll):
+        max = -100000
+        for e in range(0, 99):
+            diff_ = y_values[e][l] - y_values[99][l]
+            if diff_ > max:
+                max = diff_
+        forgetting_ += max
+
+    forgetting_ = forgetting_/ll
+    # print(forgetting_)
+    return forgetting_
+
 def test(net_a, net_b, testloader, dataset_name, partition_method='iid', label_name='label'):
     criterion = torch.nn.CrossEntropyLoss()
     correct, total, loss = 0, 0, 0.0
@@ -132,7 +147,8 @@ def test_per_target(net_a, net_b, testloader, dataset_name,
         scores_accuracy[i] = correct[i] / total[i]
     
     forgetting_score = performance_gap(scores_accuracy, target[1])
-    return (forgetting_score, scores_accuracy)
+    bw_score_val = bw_score(scores_accuracy, target[1])
+    return (forgetting_score, scores_accuracy, bw_score_val)
 
 
 def test_hydra(net_a, net_b, net_c, testloader, dataset_name, partition_method='iid', label_name='label'):
@@ -241,7 +257,8 @@ def test_per_target_hydra(net_a, net_b, net_c, testloader, dataset_name,
             scores_accuracy[i] = correct[i] / total[i]
     
     forgetting_score = performance_gap(scores_accuracy, target[1])
-    return (forgetting_score, scores_accuracy)
+    bw_score_val = bw_score(scores_accuracy, target[1])
+    return (forgetting_score, scores_accuracy, bw_score_val)
 
 def test_per_target_fl3(net_a, net_b, testloader, dataset_name, 
                     target=('label',10), partition_method='iid', 
@@ -308,7 +325,8 @@ def test_per_target_fl3(net_a, net_b, testloader, dataset_name,
             scores_accuracy[i] = correct[i] / total[i]
 
     forgetting_score = performance_gap(scores_accuracy, target[1])
-    return (forgetting_score, scores_accuracy, (correct_global/total_global))
+    bw_score_val = bw_score(scores_accuracy, target[1])
+    return (forgetting_score, scores_accuracy, (correct_global/total_global), bw_score_val)
 
 def test_per_target_multihead(net_a, net_b, testloader, dataset_name, 
                     target=('label',10), partition_method='iid', 
@@ -372,4 +390,5 @@ def test_per_target_multihead(net_a, net_b, testloader, dataset_name,
         else:
             scores_accuracy[i] = correct[i] / total[i]
     forgetting_score = performance_gap(scores_accuracy, target[1])
-    return (forgetting_score, scores_accuracy, (correct_global/total_global))
+    bw_score_val = bw_score(scores_accuracy, target[1])
+    return (forgetting_score, scores_accuracy, (correct_global/total_global), bw_score_val)

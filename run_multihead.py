@@ -196,12 +196,13 @@ def main():
         global_model_b_par = global_model_b.state_dict()
         global_model_bb.load_state_dict(global_model_b_par)
          
-        forg_score, scores, epoch_accuracy = my_utils.test_per_target_multihead(global_model_a, nets_b, testloader, args.dataset_type,
+        forg_score, scores, epoch_accuracy, bw_score_val = my_utils.test_per_target_multihead(global_model_a, nets_b, testloader, args.dataset_type,
                                                 target=(args.classif_target, my_utils.data_sets_attributes[args.dataset_type][args.classif_target]),
                                                 partition_method=partition_method_apply, label_name=label_)
        
         logger.info(f'>>>>> Epoch [{epoch}]: Global model acc: {epoch_accuracy}')
         logger.info(f'>>>>> Performance Gap: {forg_score}')
+        logger.info(f'>>>>> Backward Tranfer: {bw_score_val}')
         logger.info(f'Scores per target value')
         for i in range(my_utils.data_sets_attributes[args.dataset_type][args.classif_target]):
             logger.info(f'for label {i} >> {scores[i]}')      

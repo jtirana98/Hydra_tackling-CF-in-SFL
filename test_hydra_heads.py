@@ -434,11 +434,12 @@ def main():
         logger.info(f'>>>>> Epoch [{epoch}]: Global model loss: {epoch_loss} acc: {epoch_accuracy}')
         
 
-        (forg_score, acc_scores) = my_utils.test_per_target_hydra(global_model_a, global_model_bb, global_model_c, testloader, args.dataset_type,
+        (forg_score, acc_scores, bw_score_val) = my_utils.test_per_target_hydra(global_model_a, global_model_bb, global_model_c, testloader, args.dataset_type,
                                                 target=(args.classif_target, my_utils.data_sets_attributes[args.dataset_type][args.classif_target]),
                                                 partition_method=partition_method_apply, label_name=label_)
         
         logger.info(f'>>>>> Performance Gap: {forg_score}')
+        logger.info(f'>>>>> Backward Tranfer: {bw_score_val}')
         if args.policy in ['cyclic', 'reverse']:
             logger.info(f'Scores per-position value')
         else:
