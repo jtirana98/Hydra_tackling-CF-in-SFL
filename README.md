@@ -16,7 +16,7 @@ The paper has been accepted at AAAI 2026.
 
 Link to Paper: /*  wait for AAAI proceedings */
 
-Link to Supplementary Material: /*  TBA arxiv version */
+Link to Supplementary Material: https://arxiv.org/abs/2511.09736
 
 Structure of this Document:
 - Set-up Instructions
