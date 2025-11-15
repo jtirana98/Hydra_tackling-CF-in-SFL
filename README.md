@@ -34,12 +34,12 @@ Structure of this Document:
 
 
 3. Additional libraries
-> pip install argparse
-> pip install logging
-> pip install matplotlib
-> python -m pip install flwr-datasets==0.2.0
-> pip install -U pillow
-> pip install bokeh
+> pip install argparse \
+> pip install logging \
+> pip install matplotlib \
+> python -m pip install flwr-datasets==0.2.0 \
+> pip install -U pillow \
+> pip install bokeh \
 > conda install anaconda::scikit-learn
 
 4. If needed it add the following line before importing the flower
@@ -79,7 +79,7 @@ We have included the implementation of Hydra (see the Figure below) and all base
 - run_sflv3.py: implementation of SplitFedv3 [4,5]
 
 
-Note that all experiments, when executed write their results using logging. The logging file for every execution is stored under the *logs_training* folder.
+Note that all experiments, when executed, write their results using logging. The logging file for every execution is stored under the *logs_training* folder.
 
 All files contain an *init_parameters* function that describes in detail all input parameters for running the corresponding code. These input parameters align with the experimental set-up and use cases presented in the paper, e.g., batch size, type of data partitioning, model type, dataset type, training hyperparameters, mulitplier parameter phi, etc.
 
